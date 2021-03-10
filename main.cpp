@@ -212,7 +212,7 @@ void Retea::calcule_secundar_1(Retea v)
     }
     cout<<"Puterea lui 2 este: "<<putere<<"\n";
     cout<<"Masca: "<<masca<<"\n";
-    cout<<"Masca in binar: ";
+    cout<<"Masca in decimal: ";
     for(int i=0;i<3;i++)
         cout<<bin_masca[i]<<".";
     cout<<bin_masca[3]<<"\n\n";
@@ -460,7 +460,7 @@ void Retea::calcule_secundar_restul_1(Retea v)
     }
     cout<<"Puterea lui 2 este: "<<putere<<"\n";
     cout<<"Masca: "<<masca<<"\n";
-    cout<<"Masca in binar: ";
+    cout<<"Masca in decimal: ";
     for(int i=0;i<3;i++)
         cout<<bin_masca[i]<<".";
     cout<<bin_masca[3]<<"\n\n";
@@ -705,7 +705,7 @@ void Retea::calcule_secundar_restul_2(Retea v)
         cont++;
     }
     cout<<"Masca: "<<masca<<"\n";
-    cout<<"Masca in binar: ";
+    cout<<"Masca in decimal: ";
     for(int i=0;i<3;i++)
         cout<<bin_masca[i]<<".";
     cout<<bin_masca[3]<<"\n\n";
