@@ -12,6 +12,7 @@ private:
     int ip[4];
     int masca;
     int bin_masca[4];
+    string nume;
 
     int NA[4];
     int BA[4];
@@ -140,7 +141,7 @@ void Retea::calcule_initial()
 
 void Retea::calcule_secundar_1(Retea v)
 {
-    cout<<"\n\tReteaua cu "<<this->nr_host<<" hosturi are:\n\n";
+    cout<<"\n\tReteaua cu numele "<<nume<<" si "<<this->nr_host<<" hosturi are:\n\n";
     int gasit=0;
     int putere=-1;
     while(gasit==0)
@@ -388,7 +389,7 @@ void Retea::calcule_secundar_1(Retea v)
 
 void Retea::calcule_secundar_restul_1(Retea v)
 {
-    cout<<"\n\n\tReteaua cu "<<this->nr_host<<" hosturi are:\n\n";
+    cout<<"\n\tReteaua cu numele "<<nume<<" si cu "<<this->nr_host<<" hosturi are:\n\n";
     int gasit=0;
     int putere=-1;
     while(gasit==0)
@@ -793,6 +794,8 @@ void Retea::citire(istream& in)
 {
     cout<<"Nr hosturi: ";
     in>>this->nr_host;
+    cout<<"Numele LANului este: ";
+    in>>this->nume;
     cout<<endl;
 }
 
@@ -859,7 +862,7 @@ int main()
     cout<<"\nIntroduceti numarul de WIFI-uri: ";
     cin>>m;
     cout<<endl;
-    Retea v[100];
+    Retea v[n+1];
     v[0].initializare(ip,masca);
     for(int i=1;i<=n;i++)
         cin>>v[i];
@@ -867,8 +870,14 @@ int main()
     system("cls");
 
     v[0].calcule_initial();
-    qsort(v+1,n,sizeof(Retea),compare);
-
+    for(int i=1;i<n;i++)
+    {
+        for(int j=i+1;j<=n;j++)
+        {
+            if(v[i].get_nr_host()<v[j].get_nr_host())
+            swap(v[i],v[j]);
+        }
+    }
     cout<<v[0];
     cout<<"\n---------------------------------------------------------------------\n";
     v[1].calcule_secundar_1(v[0]);
@@ -876,6 +885,7 @@ int main()
         v[i].calcule_secundar_restul_1(v[i-1]);
 
     cout<<"\n---------------------------------------------------------------------\n";
+    if(m>0){
     cout<<"\n\n\tPrima retea WIFI este:\n\n";
     v[j].calcule_secundar_restul_2(v[n]);
     for(j=1;j<m;j++)
@@ -889,6 +899,17 @@ int main()
     {
         cout<<"\n\n\tReteaua dintre routere cu numarul "<<k+1<<" este:\n\n";
         v[k].calcule_secundar_restul_2(v[k-1]);
+    }
+    }
+    else
+    {
+    cout<<"\n\n\tPrima retea dintre routere este:\n\n";
+    v[k].calcule_secundar_restul_2(v[n]);
+    for(k=1;k<n-1;k++)
+    {
+        cout<<"\n\n\tReteaua dintre routere cu numarul "<<k+1<<" este:\n\n";
+        v[k].calcule_secundar_restul_2(v[k-1]);
+    }
     }
     cout<<endl;
 }
