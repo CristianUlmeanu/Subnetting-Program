@@ -527,7 +527,7 @@ void Retea::calcule_secundar_restul_1(Retea v)
     cout<<"WildCard: ";
     for(int i=0;i<3;i++)
         cout<<255-bin_masca[i]<<".";
-    cout<<255-bin_masca[3]<<"/n";
+    cout<<255-bin_masca[3]<<"\n";
 
     int dif_ra=0;
     for(int i=0;i<4;i++)
