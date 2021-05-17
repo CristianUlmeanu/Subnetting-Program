@@ -261,6 +261,10 @@ void Retea::calcule_secundar_1(Retea v)
     for(int i=0;i<3;i++)
         cout<<RA_max[i]<<".";
     cout<<RA_max[3]<<"/"<<this->masca<<"\n\n";
+    cout<<"WildCard: ";
+    for(int i=0;i<3;i++)
+        cout<<255-bin_masca[i]<<".";
+    cout<<255-bin_masca[3]<<"\n";
 
     int dif_ra=0;
     for(int i=0;i<4;i++)
@@ -520,6 +524,10 @@ void Retea::calcule_secundar_restul_1(Retea v)
     for(int i=0;i<3;i++)
         cout<<RA_max[i]<<".";
     cout<<RA_max[3]<<"/"<<this->masca<<"\n\n";
+    cout<<"WildCard: ";
+    for(int i=0;i<3;i++)
+        cout<<255-bin_masca[i]<<".";
+    cout<<255-bin_masca[3]<<"/n";
 
     int dif_ra=0;
     for(int i=0;i<4;i++)
@@ -606,7 +614,6 @@ void Retea::calcule_secundar_restul_1(Retea v)
                 cout<<RA_min[i]<<".";
             cout<<switch_max<<"/"<<this->masca<<endl;
         }
-
         int nr_switch1=ceil((float)pow(2,putere)/26);
         cout<<"\nNr ipuri pentru range maxim (2 la putere): "<<dif_ra<<endl;
         cout<<"Nr switch pentru range maxim: "<<nr_switch1<<endl;
@@ -749,6 +756,8 @@ void Retea::calcule_secundar_restul_2(Retea v)
         cout<<BA[i]<<".";
     cout<<BA[3]<<"/"<<this->masca<<endl;
 
+
+
     //CALCUL RA
     for(int i=0;i<3;i++)
         RA_min[i]=NA[i];
@@ -765,6 +774,10 @@ void Retea::calcule_secundar_restul_2(Retea v)
     for(int i=0;i<3;i++)
         cout<<RA_max[i]<<".";
     cout<<RA_max[3]<<"/"<<this->masca<<"\n\n";
+        cout<<"WildCard: ";
+    for(int i=0;i<3;i++)
+        cout<<255-bin_masca[i]<<".";
+    cout<<255-bin_masca[3]<<"\n\n";
 
     int dif_ra=0;
     for(int i=0;i<4;i++)
